@@ -17,13 +17,12 @@ class Boat:
         return self.capacity - self.load_num
 
     def load(self, size):
-        if self.left_space() < num:
+        if self.left_space() < size:
             return
         if self.pos != -1 and self.status == 1:
-            self.load_num += num
+            self.load_num += size
 
     def set_next_pos(self):
-        # TODO 这是干嘛的？
         self.next_pos = (self.next_pos + 1) % 2
 
 
