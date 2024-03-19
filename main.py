@@ -1,3 +1,6 @@
+from tools import Init
+
+
 def main():
     Init()
 

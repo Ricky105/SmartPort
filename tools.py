@@ -14,3 +14,5 @@ def Init(map_size, berth_num):
         berth[id].transport_time = berth_list[3]
         berth[id].loading_speed = berth_list[4]
         berth_dict[(berth[id].x, berth[id].y)] = id
+
+
