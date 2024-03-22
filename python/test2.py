@@ -392,9 +392,17 @@ def update_gds(gds):
     return gds
 
 
+def init_robot_route():
+    for bot in robot:
+        # 以下可以优化为如何为初始bot分配合适的berth，先用随机的方式做
+        berth_id = random.randint(0, len(berth) - 1)
+        bot.route = a_star((bot.x, bot.y), (berth[berth_id].x + 3, berth[berth_id].y + 3), ch)
+
+
 if __name__ == "__main__":
     # 初始化物品，机器人，船舶，地图的状态
     Init()
+    init_robot_route()
     for zhen in range(1, 15001):
         # 新的一帧到来时，需要更新物品，机器人，船舶的状态
         # 首先更新物品的状态
