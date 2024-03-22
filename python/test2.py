@@ -18,7 +18,7 @@ def neighbors(current_pos, ch):
     for i in range(4):
         x, y = current_pos[0], current_pos[1]
         new_x, new_y = x + dirs[i][0], y + dirs[i][1]
-        if 0 <= new_x < m and 0 <= new_y < n and ch[new_x][new_y] == '.':
+        if 0 <= new_x < m and 0 <= new_y < n and ch[new_x][new_y] in ['.', 'B']:
             neighbors_pos.append((new_x, new_y))
     return neighbors_pos
 
@@ -32,7 +32,7 @@ def a_star(src_pos, target_pos, ch, max_step=15):
     A*寻路算法
     :param src_pos: 源位置(x1, y1)
     :param target_pos: 目标位置(x2, y2)
-    :param ch: 地图[][]='.'
+    :param ch: 地图[][]='.'or'B'
     :param max_step: 最多步长设置 TODO
     :return: [x, x, ...] 0右移，1左移，2上移，3下移
     """
@@ -237,8 +237,8 @@ robot_order_list = [-1 for _ in range(robot_num)]
 boat_order_list = [-2 for _ in range(boat_num)]
 
 def Init():
-    map_file = '/data/kx/program/hw/maps/map1.txt'
-    berth_file = '/data/kx/program/hw/maps/map1_berth_config.txt'
+    map_file = '../maps/map1.txt'
+    berth_file = '../maps/map1_berth_config.txt'
     with open(map_file, 'r') as f:
         for line in f.readlines():
             ch.append([c for c in line])
