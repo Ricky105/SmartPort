@@ -147,7 +147,7 @@ class Goods:
             print(route_to_berth, self.route, self.cost_time, self.least_time)
 
 
-robot = [Robot() for _ in range(robot_num + 10)]
+robot = [Robot() for _ in range(robot_num)]
 
 
 # 泊位
@@ -189,7 +189,7 @@ class Berth:
             return load
 
 
-berth = [Berth() for _ in range(berth_num + 10)]
+berth = [Berth() for _ in range(berth_num)]
 
 
 # 轮船
@@ -402,7 +402,6 @@ def init_robot_route():
 if __name__ == "__main__":
     # 初始化物品，机器人，船舶，地图的状态
     Init()
-    init_robot_route()
     for zhen in range(1, 15001):
         # 新的一帧到来时，需要更新物品，机器人，船舶的状态
         # 首先更新物品的状态
@@ -414,6 +413,8 @@ if __name__ == "__main__":
 
         id = Input()
 
+        if zhen == 1:
+            init_robot_route()
         # 首先确定所有空闲机器人
         # 通过循环确定没有路径的机器人
         # 循环中为每个机器人确定要去的位置

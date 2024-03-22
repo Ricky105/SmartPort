@@ -8,7 +8,7 @@ def neighbors(current_pos, ch):
     for i in range(4):
         x, y = current_pos[0], current_pos[1]
         new_x, new_y = x + dirs[i][0], y + dirs[i][1]
-        if 0 <= new_x < m and 0 <= new_y < n and ch[new_x][new_y] == '.':
+        if 0 <= new_x < m and 0 <= new_y < n and ch[new_x][new_y] in ['.', 'B']:
             neighbors_pos.append((new_x, new_y))
     return neighbors_pos
 
